@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #020617, #0f172a);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  bottom: -10px;
+  width: 6px;
+  height: 6px;
+  background: rgba(56, 189, 248, 0.6);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* Card */
+.box {
+  z-index: 2;
+  width: 400px;
+  background: rgba(30, 41, 59, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  background: #38bdf8;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#reply {
+  margin-top: 15px;
+  background: #020617;
+  padding: 10px;
+  border-radius: 6px;
+}
