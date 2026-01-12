@@ -8,22 +8,32 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
-  <div class="box">
-    <h2>⚖️ NyayAI</h2>
-    <input id="question" placeholder="Ask your legal question..." />
-    <button onclick="ask()">Ask</button>
-    <div id="reply"></div>
+  <!-- SPLASH SCREEN -->
+  <div id="splash">
+    <div class="overlay">
+      <h1 class="logo">⚖️ NyayAI</h1>
+      <p class="tagline">Justice. Simplified. Powered by AI.</p>
+      <button onclick="enterApp()">Enter</button>
+    </div>
   </div>
 
-  <!-- PARTICLE SCRIPT (BACKGROUND ANIMATION) -->
+  <!-- MAIN APP -->
+  <div id="app" class="hidden">
+    <div class="box">
+      <h2>⚖️ NyayAI</h2>
+      <input id="question" placeholder="Ask your legal question..." />
+      <button onclick="ask()">Ask</button>
+      <div id="reply"></div>
+    </div>
+  </div>
+
   <script>
-    for (let i = 0; i < 40; i++) {
-      const p = document.createElement("div");
-      p.className = "particle";
-      p.style.left = Math.random() * 100 + "vw";
-      p.style.animationDuration = (6 + Math.random() * 6) + "s";
-      document.body.appendChild(p);
+    function enterApp() {
+      document.getElementById("splash").classList.add("fade-out");
+      setTimeout(() => {
+        document.getElementById("splash").style.display = "none";
+        document.getElementById("app").classList.remove("hidden");
+      }, 800);
     }
 
     async function ask() {
@@ -35,8 +45,15 @@
       });
       const data = await res.json();
       document.getElementById("reply").innerText = data.reply;
+      for (let i = 0; i < 30; i++) {
+    const p = document.createElement("div");
+    p.className = "particle";
+    p.innerText = Math.random() > 0.5 ? "⚖️" : "🔨";
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = 10 + Math.random() * 15 + "s";
+    document.body.appendChild(p);
     }
   </script>
-
 </body>
+
 </html>
