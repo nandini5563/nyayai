@@ -1,26 +1,28 @@
 <body>
 
-  <!-- INTRO PAGE -->
-  <div class="intro" id="intro">
-    <h1>⚖️ NyayAI</h1>
-    <p>Justice. Simplified. Powered by AI.</p>
-    <button class="enter-btn" onclick="enterApp()">Enter</button>
+  <!-- ========== LANDING PAGE ========== -->
+  <div id="landing" class="landing">
+    <div class="overlay">
+      <h1>⚖️ NyayAI</h1>
+      <p>Justice. Simplified. Powered by AI.</p>
+      <button onclick="enterApp()">Enter</button>
+    </div>
   </div>
 
-  <!-- CHAT PAGE -->
-  <div class="container" id="app">
+  <!-- ========== CHAT PAGE ========== -->
+  <div id="chat" class="chat hidden">
     <div class="box">
       <h2>⚖️ NyayAI</h2>
       <input id="question" placeholder="Ask your legal question..." />
-      <button class="ask-btn" onclick="ask()">Ask</button>
+      <button onclick="ask()">Ask</button>
       <div id="reply"></div>
     </div>
   </div>
 
   <script>
     function enterApp() {
-      document.getElementById("intro").style.display = "none";
-      document.getElementById("app").style.display = "flex";
+      document.getElementById("landing").style.display = "none";
+      document.getElementById("chat").style.display = "flex";
     }
 
     async function ask() {
