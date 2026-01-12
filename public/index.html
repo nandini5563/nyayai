@@ -1,39 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>NyayAI – Legal Assistant</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/style.css">
-</head>
 <body>
-  <!-- SPLASH SCREEN -->
-  <div id="splash">
-    <div class="overlay">
-      <h1 class="logo">⚖️ NyayAI</h1>
-      <p class="tagline">Justice. Simplified. Powered by AI.</p>
-      <button onclick="enterApp()">Enter</button>
-    </div>
+
+  <!-- INTRO PAGE -->
+  <div class="intro" id="intro">
+    <h1>⚖️ NyayAI</h1>
+    <p>Justice. Simplified. Powered by AI.</p>
+    <button class="enter-btn" onclick="enterApp()">Enter</button>
   </div>
 
-  <!-- MAIN APP -->
-  <div id="app" class="hidden">
+  <!-- CHAT PAGE -->
+  <div class="container" id="app">
     <div class="box">
       <h2>⚖️ NyayAI</h2>
       <input id="question" placeholder="Ask your legal question..." />
-      <button onclick="ask()">Ask</button>
+      <button class="ask-btn" onclick="ask()">Ask</button>
       <div id="reply"></div>
     </div>
   </div>
 
   <script>
     function enterApp() {
-      document.getElementById("splash").classList.add("fade-out");
-      setTimeout(() => {
-        document.getElementById("splash").style.display = "none";
-        document.getElementById("app").classList.remove("hidden");
-      }, 800);
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("app").style.display = "flex";
     }
 
     async function ask() {
@@ -45,15 +32,7 @@
       });
       const data = await res.json();
       document.getElementById("reply").innerText = data.reply;
-      for (let i = 0; i < 30; i++) {
-    const p = document.createElement("div");
-    p.className = "particle";
-    p.innerText = Math.random() > 0.5 ? "⚖️" : "🔨";
-    p.style.left = Math.random() * 100 + "vw";
-    p.style.animationDuration = 10 + Math.random() * 15 + "s";
-    document.body.appendChild(p);
     }
   </script>
-</body>
 
-</html>
+</body>
