@@ -10,13 +10,10 @@
   height: 100vh;
   width: 100vw;
   background:
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url("https://images.unsplash.com/photo-1589829085413-56de8ae18c73");
+    linear-gradient(rgba(2,6,23,0.85), rgba(2,6,23,0.85)),
+    url("https://images.unsplash.com/photo-1528740561666-dc2479dc08ab");
   background-size: cover;
   background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .landing-content {
