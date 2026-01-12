@@ -2,15 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
-/* ---------- LANDING PAGE ---------- */
+/* ===== LANDING PAGE ===== */
 .landing {
   height: 100vh;
   width: 100vw;
-  background: 
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
     url("https://images.unsplash.com/photo-1589829085413-56de8ae18c73");
   background-size: cover;
   background-position: center;
@@ -19,37 +19,38 @@
   align-items: center;
 }
 
-.overlay {
+.landing-content {
   text-align: center;
   color: white;
   animation: fadeIn 2s ease;
 }
 
-.overlay h1 {
+.landing-content h1 {
   font-size: 4rem;
   margin-bottom: 10px;
 }
 
-.overlay p {
-  font-size: 1.2rem;
+.landing-content p {
+  font-size: 1.3rem;
   margin-bottom: 30px;
 }
 
-.overlay button {
+.landing-content button {
   padding: 15px 50px;
   font-size: 18px;
   border: none;
   border-radius: 30px;
   background: #38bdf8;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.overlay button:hover {
+.landing-content button:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 25px #38bdf8;
 }
 
-/* ---------- CHAT PAGE ---------- */
+/* ===== CHAT PAGE ===== */
 .chat {
   height: 100vh;
   width: 100vw;
@@ -63,17 +64,19 @@
   display: none;
 }
 
-.box {
+.chat-box {
   width: 420px;
   background: #1e293b;
   padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(56,189,248,0.3);
+  border-radius: 15px;
+  box-shadow: 0 0 40px rgba(56,189,248,0.4);
+  animation: slideUp 1s ease;
 }
 
-.box h2 {
+.chat-box h2 {
   text-align: center;
   margin-bottom: 15px;
+  color: #e5e7eb;
 }
 
 input, button {
@@ -89,17 +92,21 @@ button {
   cursor: pointer;
 }
 
-#reply {
+.reply {
   margin-top: 15px;
   background: #020617;
-  padding: 10px;
-  border-radius: 5px;
-  min-height: 50px;
+  padding: 12px;
+  border-radius: 8px;
   color: #e5e7eb;
 }
 
-/* ---------- ANIMATION ---------- */
+/* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }

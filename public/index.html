@@ -1,28 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NyayAI</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
 <body>
 
-  <!-- ========== LANDING PAGE ========== -->
-  <div id="landing" class="landing">
-    <div class="overlay">
+  <!-- ===== LANDING / WELCOME PAGE ===== -->
+  <section id="landing" class="landing">
+    <div class="landing-content">
       <h1>⚖️ NyayAI</h1>
       <p>Justice. Simplified. Powered by AI.</p>
       <button onclick="enterApp()">Enter</button>
     </div>
-  </div>
+  </section>
 
-  <!-- ========== CHAT PAGE ========== -->
-  <div id="chat" class="chat hidden">
-    <div class="box">
+  <!-- ===== CHAT PAGE ===== -->
+  <section id="chat" class="chat hidden">
+    <div class="chat-box">
       <h2>⚖️ NyayAI</h2>
+
       <input id="question" placeholder="Ask your legal question..." />
       <button onclick="ask()">Ask</button>
-      <div id="reply"></div>
+
+      <div id="reply" class="reply"></div>
     </div>
-  </div>
+  </section>
 
   <script>
     function enterApp() {
-      document.getElementById("landing").style.display = "none";
-      document.getElementById("chat").style.display = "flex";
+      document.getElementById("landing").classList.add("hidden");
+      document.getElementById("chat").classList.remove("hidden");
     }
 
     async function ask() {
@@ -30,11 +40,19 @@
       const res = await fetch("/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: q }),
+        body: JSON.stringify({ message: q })
       });
       const data = await res.json();
-      document.getElementById("reply").innerText = data.reply;
+
+      document.getElementById("reply").innerHTML = `
+        <h3>🧾 Legal Insight</h3>
+        <p>${data.reply}</p>
+
+        <h3>⚠️ Possible Consequences</h3>
+        <p>Based on Indian Law (IPC / CrPC if applicable)</p>
+      `;
     }
   </script>
 
 </body>
+</html>
